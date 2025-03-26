@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempSpector</title>
+    <meta name="viewport" content="width=1400">
+    <link rel="shortcut icon" href="assets/images/main_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.min.css">
+
+    <title>TempSpector - Responsive Website Preview Tool</title>
+    <meta name="description" content="Test your website's responsiveness across various screen sizes, including mobile, tablet, and desktop. Perfect for developers and designers!" />
+    
+    <meta property="og:title" content="TempSpector - Responsive Website Preview Tool" />
+    <meta property="og:description" content="Easily preview your website on different screen sizes. Ensure mobile and desktop compatibility effortlessly!" />
+    <meta property="og:image" content="https://yourwebsite.com/preview-image.jpg" />
+    <meta property="og:url" content="https://yourwebsite.com/" />
+    <meta property="og:type" content="website" />
+
+
+</head>
+<body>
+
+    <header>
+        <div class="header">
+            <div class="temp_wrapper">
+                <div class="temp_hdr_con">
+                    <div class="temp_logo">
+                        <figure>
+                            <img src="/assets/images/main_logo.png" alt="TempSpector Logo">
+                        </figure>
+                    </div>
+                    <nav>
+                        <div class="temp_nav_con">
+                            <ul>
+                                <li><a href="https://github.com/Cebucoder"><span><figure><img src="assets/images/icons/github.svg" alt="Github icon"></figure></span>Github</a></li>
+                                <li><a href=""><span><figure><img src="assets/images/icons/share-2.svg" alt="Share icon"></figure></span>Share Me</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="temp_con">
+            <div class="temp_wrapper">
+                <div class="temp_content">
+                    <div class="temp_content_hdr">
+                        <form action="">
+                            <div class="inpt_link_con">
+                                <div class="input_hldr">
+                                    <input id="temp_link_rdr" type="text" required>
+                                </div>
+                                <div class="temp_hdr_btn">
+                                    <input id="temp_executer" type="submit" value="Go">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="mob_selector">
+                            <select id="screenSize">
+                                    <option value="" disabled>Smartphones (360px - 480px)</option>
+                                    <option value="360x640">360 × 640 px (Small Android Phones)</option>
+                                    <option value="375x667">375 × 667 px (iPhone SE)</option>
+                                    <option value="390x844">390 × 844 px (iPhone 15, 14, 13, 12)</option>
+                                    <option value="414x896">414 × 896 px (iPhone 11, XR, Plus Models)</option>
+                                    <option value="430x932">430 × 932 px (iPhone 15 Pro Max, 14 Pro Max)</option>
+                                    <option value="480x854">480 × 854 px (Large Android Phones)</option>
+                            
+                                    <option value="" disabled>Tablets (600px - 1024px)</option>
+                                    <option value="600x960">600 × 960 px (Small Android Tablets)</option>
+                                    <option value="768x1024">768 × 1024 px (iPad Mini, Standard 9.7-inch Tablets)</option>
+                                    <option value="810x1080">810 × 1080 px (iPad Air)</option>
+                                    <option value="834x1194">834 × 1194 px (iPad Pro 11-inch)</option>
+                                    <option value="1024x1366">1024 × 1366 px (iPad Pro 12.9-inch)</option>
+                            
+                                    <option value="" disabled> Laptops (1280px - 1400px)</option>
+                                    <option value="1280x720">1280 × 720 px (HD, small laptops)</option>
+                                    <option value="1366x768">1366 × 768 px (Most common low-end laptops)</option>
+                                    <option value="1400x900">1400 × 900 px (MacBook, Mid-size Laptops)</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+
+                    <div class="temp_previewer">
+                        <div class="temp_iframe_hdlr">
+                            <iframe id="web_previer" src="" frameborder="0"></iframe>
+                            <div id="loadingIndicator" class="loader"></div>
+                        </div>
+                        <div id="temp_px_label">Device px</div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="copywrited">
+            <div class="year">
+                Copyright © 2025 - <span id="year">2025</span>
+            </div> 
+            <script>
+                let currentDate = new Date();
+                let year = currentDate.getFullYear();
+                document.getElementById('year').textContent = year;
+            </script> 
+            All rights reserved | Created By CebuCoder
+        </div>
+    </footer>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/assets/js/script.min.js"></script>
+    
+</body>
+
+
+</html>
