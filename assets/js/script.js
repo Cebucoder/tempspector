@@ -39,25 +39,78 @@ $(document).ready(function () {
         let selectedValue = $(this).val();
         let selectedSize = screenSizes.find(size => `${size.width}x${size.height}` === selectedValue);
 
+
         if (selectedSize) {
             iframe.css({ width: selectedSize.width + 'px', height: selectedSize.height + 'px' });
             temp_px_label.text(`${selectedSize.label} - ${selectedSize.width} × ${selectedSize.height} px`);
             localStorage.setItem("selectedScreenSize", selectedValue);
+            let selectedScreenWidth = `${selectedSize.width}`;
+            localStorage.setItem("selectedScreenWidth", selectedScreenWidth);
+            let savedScrenWidth = localStorage.getItem("selectedScreenWidth");
+            let savedScreenWidthAdd = parseInt(savedScrenWidth, 10) + 50;
+            $('.temp_previewer').css('width', `${savedScreenWidthAdd}px`);
+
         }
+
+        if (selectedSize.width >= 1280) {
+            $('.touch_con').hide();
+            $('.temp_previewer').addClass("ad_pd_btm");
+            console.log("Greater than or equal to 1280");
+        } else {
+            $('.touch_con').show();
+            $('.temp_previewer').removeClass("ad_pd_btm");
+            console.log("Less than 1280");
+        }
+
+        // $('.temp_previewer').addClass("bounce");
+        // setTimeout(() => {
+        //     $('.temp_previewer').removeClass("bounce");
+        // }, 800);
+        $('.temp_previewer').hide().fadeIn(500);
+
     });
+
+
+
+    // Retrieve saved link from localStorage and load it
+    let savedLink = localStorage.getItem("PreviewLink");
+    if (savedLink) {
+        $('#temp_link_rdr').val(savedLink);
+
+        setTimeout(() => temp_executer.trigger('click'), 500); // Delay auto-trigger to avoid looping
+    }
 
     // Show loading effect while fetching the preview
     temp_executer.on('click', function (event) {
         event.preventDefault();
+        // Save input link to localStorage
         let temp_link_rdr = $('#temp_link_rdr').val().trim(); // Get the input value
-        if (!temp_link_rdr) return; // Stop if no input
+        if (!temp_link_rdr) return; // Stop if input is empty
+
+        // Save input link
+        localStorage.setItem("PreviewLink", temp_link_rdr);
+
+        let savedScrenWidth = localStorage.getItem("selectedScreenWidth");
+        let savedScreenWidthAdd = parseInt(savedScrenWidth, 10) + 50;
+        $('.temp_previewer').css('width', `${savedScreenWidthAdd}px`);
+        $('.temp_previewer').hide().fadeIn(500);
+
+        if (savedScrenWidth >= 1280) {
+            $('.touch_con').hide();
+            $('.temp_previewer').addClass("ad_pd_btm");
+            console.log("Greater than or equal to 1280");
+        } else {
+            $('.touch_con').show();
+            $('.temp_previewer').removeClass("ad_pd_btm");
+            console.log("Less than 1280");
+        }
 
         loadingIndicator.css("display", "block"); // Show loading effect
         iframe.css(
             {
                 visibility: "hidden",
                 display: "none",
-                width: "1400px",
+                // width: "1400px",
             }); // Hide iframe temporarily
 
         iframe.attr('src', temp_link_rdr); // Set iframe src
@@ -69,7 +122,7 @@ $(document).ready(function () {
                 {
                     visibility: "visible",
                     display: "block",
-                    maxWidth: "1400px",
+                    // maxWidth: "1400px",
                 }
             ); // Show iframe again
             temp_px_label.text(`${savedSizeData.label} - ${savedWidth} × ${savedHeight} px`);
