@@ -55,15 +55,15 @@ $(document).ready(function () {
             $('.touch_con').hide();
             $('.temp_previewer').addClass("ad_pd_btm");
             $('.phone_screen, .tablet_screen').hide(); // FIXED
-            $('.laptop_screen').show();
+            $('.laptop_screen').css("display", "flex");
         } else if (selectedSize.width >= 600) {
             $('.phone_screen, .laptop_screen').hide(); // FIXED
-            $('.tablet_screen').show();
+            $('.tablet_screen').css("display", "flex");
         } else {
             $('.touch_con').show();
             $('.temp_previewer').removeClass("ad_pd_btm");
             $('.laptop_screen, .tablet_screen').hide(); // FIXED
-            $('.phone_screen').show();
+            $('.phone_screen').css("display", "flex");
         }
 
         // $('.temp_previewer').addClass("bounce");
@@ -91,6 +91,11 @@ $(document).ready(function () {
         let temp_link_rdr = $('#temp_link_rdr').val().trim(); // Get the input value
         if (!temp_link_rdr) return; // Stop if input is empty
 
+        if (!temp_link_rdr || temp_link_rdr.trim() === "") {
+            $('.phone_screen, .tablet_screen').hide(); // FIXED
+            $('.laptop_screen').show();
+        }
+
         // Save input link
         localStorage.setItem("PreviewLink", temp_link_rdr);
 
@@ -103,15 +108,15 @@ $(document).ready(function () {
             $('.touch_con').hide();
             $('.temp_previewer').addClass("ad_pd_btm");
             $('.phone_screen, .tablet_screen').hide(); // FIXED
-            $('.laptop_screen').show();
+            $('.laptop_screen').css("display", "flex");
         } else if (savedScreenWidthAdd >= 600) {
             $('.phone_screen, .laptop_screen').hide(); // FIXED
-            $('.tablet_screen').show();
+            $('.tablet_screen').css("display", "flex");
         } else {
             $('.touch_con').show();
             $('.temp_previewer').removeClass("ad_pd_btm");
             $('.laptop_screen, .tablet_screen').hide(); // FIXED
-            $('.phone_screen').show();
+            $('.phone_screen').css("display", "flex");
         }
 
         loadingIndicator.css("display", "block"); // Show loading effect
