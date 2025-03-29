@@ -51,15 +51,19 @@ $(document).ready(function () {
             $('.temp_previewer').css('width', `${savedScreenWidthAdd}px`);
 
         }
-
         if (selectedSize.width >= 1280) {
             $('.touch_con').hide();
             $('.temp_previewer').addClass("ad_pd_btm");
-            console.log("Greater than or equal to 1280");
+            $('.phone_screen, .tablet_screen').hide(); // FIXED
+            $('.laptop_screen').show();
+        } else if (selectedSize.width >= 600) {
+            $('.phone_screen, .laptop_screen').hide(); // FIXED
+            $('.tablet_screen').show();
         } else {
             $('.touch_con').show();
             $('.temp_previewer').removeClass("ad_pd_btm");
-            console.log("Less than 1280");
+            $('.laptop_screen, .tablet_screen').hide(); // FIXED
+            $('.phone_screen').show();
         }
 
         // $('.temp_previewer').addClass("bounce");
@@ -95,14 +99,19 @@ $(document).ready(function () {
         $('.temp_previewer').css('width', `${savedScreenWidthAdd}px`);
         $('.temp_previewer').hide().fadeIn(500);
 
-        if (savedScrenWidth >= 1280) {
+        if (savedScreenWidthAdd >= 1280) {
             $('.touch_con').hide();
             $('.temp_previewer').addClass("ad_pd_btm");
-            console.log("Greater than or equal to 1280");
+            $('.phone_screen, .tablet_screen').hide(); // FIXED
+            $('.laptop_screen').show();
+        } else if (savedScreenWidthAdd >= 600) {
+            $('.phone_screen, .laptop_screen').hide(); // FIXED
+            $('.tablet_screen').show();
         } else {
             $('.touch_con').show();
             $('.temp_previewer').removeClass("ad_pd_btm");
-            console.log("Less than 1280");
+            $('.laptop_screen, .tablet_screen').hide(); // FIXED
+            $('.phone_screen').show();
         }
 
         loadingIndicator.css("display", "block"); // Show loading effect
