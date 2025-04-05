@@ -1,0 +1,21 @@
+{
+  "name": "Tempspector",
+  "short_name": "Tempspector",
+  "icons": [
+    {
+      "src": "/https://cebucoder.github.io/tempspector/assets/images/main_logo.png/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/https://cebucoder.github.io/tempspector/assets/images/main_logo.png/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#11223e",
+  "background_color": "#11223e",
+  "display": "standalone"
+}
